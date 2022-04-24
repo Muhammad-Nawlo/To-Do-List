@@ -1,0 +1,48 @@
+<form #f="ngForm" (ngSubmit)="saveTask(f.value)">
+  <div class="mb-3">
+    <label for="name" class="form-label">{{ "Task Name" }}</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      ngModel
+      name="title"
+      #title="ngModel"
+      required
+    />
+    <div *ngIf="title.touched && title.invalid" class="invalid-error">
+      {{ "Title is required" }}
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="date" class="form-label">{{ "Date & Time" }}</label>
+    <input
+      type="text"
+      class="form-control "
+      id="date"
+      ngModel
+      name="date"
+      #date="ngModel"
+      required
+    />
+    <div *ngIf="date.touched && date.invalid" class="invalid-error">
+      {{ "Date is required" }}
+    </div>
+  </div>
+  <div class="mb-3 form-check">
+    <input
+      type="checkbox"
+      class="form-check-input"
+      id="reminder"
+      ngModel
+      name="reminder"
+      #reminder="ngModel"
+    />
+    <label class="form-check-label" for="reminder">{{ "Set Reminder" }}</label>
+  </div>
+  <button type="submit" class="btn btn-primary w-100" [disabled]="f.invalid">
+    {{ "Save Task" }}
+  </button>
+</form>

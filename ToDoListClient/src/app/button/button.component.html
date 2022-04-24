@@ -1,0 +1,8 @@
+<button *ngIf="this.btnStatus; else close" (click)="onChangeStatus()" class="btn btn-primary">
+  {{ "Add" }}
+</button>
+<ng-template #close>
+  <button *ngIf="!this.btnStatus; else close" (click)="onChangeStatus()" class="btn btn-danger">
+    {{ "Close" }}
+  </button>
+</ng-template>

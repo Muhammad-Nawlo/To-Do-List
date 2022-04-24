@@ -1,0 +1,8 @@
+<div class="card d-flex">
+  <app-header
+    [btnStatus]="btnStatus"
+    (changeStatus)="changeStatus($event)"
+  ></app-header>
+  <app-task-form *ngIf="!btnStatus" (taskSaved)="newTask($event)"></app-task-form>
+  <app-task *ngFor="let task of tasks" [task]="task" (taskDeleted)="taskDeleted($event)" ></app-task>
+</div>
